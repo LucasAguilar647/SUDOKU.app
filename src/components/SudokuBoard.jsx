@@ -4,7 +4,7 @@ import '../css/SudokuBoard.css';
 
 function SudokuBoard({ sudokuIncomplete }) {
   const [inputValues, setInputValues] = useState(sudokuIncomplete.map(row => row.slice()));
-  const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(false);
 
   const handleInputChange = (event, rowIndex, colIndex) => {
     const { value } = event.target;
@@ -19,8 +19,6 @@ function SudokuBoard({ sudokuIncomplete }) {
       setIsValid(true);
     }
   };
-
-  console.log(isValid)
 
   return (
     <div className="sudoku-board">

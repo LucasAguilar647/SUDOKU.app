@@ -1,13 +1,23 @@
-h1{
-    text-align: center;
-}
 
+:root{
+    background-color: #40407a;
+}
 
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ajusta la altura según sea necesario */
-  }
-  
+    height: 100vh; 
+}
+
+.recuadro-juego{
+    border: solid ;
+    border-radius: 20px;
+    padding: 30px;
+    background-color: #2c2c54;
+}
+
+h1{
+    text-align: center;
+}

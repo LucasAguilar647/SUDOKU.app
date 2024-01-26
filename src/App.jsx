@@ -5,10 +5,13 @@ import "./css/app.css";
 function App() {
   return (
     <div className="container">
-      <div>
+      <div className="recuadro-juego">
         <h1>SUDOKU</h1>
 
+        <button>Pista</button>
+
         <SudokuBoard sudokuIncomplete={sudokuIncomplete} />
+
       </div>
     </div>
   );
