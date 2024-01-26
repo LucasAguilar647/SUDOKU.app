@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import sudokuCoorect from '../assets/sudokuCorrect'
+import sudokuComplete from '../assets/sudokuComplete'
 import '../css/SudokuBoard.css';
 
-function SudokuBoard({ sudokuGrid }) {
-  const [inputValues, setInputValues] = useState(sudokuGrid.map(row => row.slice()));
+function SudokuBoard({ sudokuIncomplete }) {
+  const [inputValues, setInputValues] = useState(sudokuIncomplete.map(row => row.slice()));
   const [isValid, setIsValid] = useState(true);
 
   const handleInputChange = (event, rowIndex, colIndex) => {
@@ -13,7 +13,7 @@ function SudokuBoard({ sudokuGrid }) {
     );
     setInputValues(newInputValues);
 
-    if (parseInt(value) !== sudokuCoorect[rowIndex][colIndex]) {
+    if (parseInt(value) !== sudokuComplete[rowIndex][colIndex]) {
       setIsValid(false);
     } else {
       setIsValid(true);
@@ -28,8 +28,8 @@ function SudokuBoard({ sudokuGrid }) {
         <div key={rowIndex} className="sudoku-row">
           {row.map((cell, colIndex) => (
             <div key={colIndex} className={`sudoku-cell ${!isValid ? 'invalid' : ''}`}>
-              {sudokuGrid[rowIndex][colIndex] !== 0 ? (
-                sudokuGrid[rowIndex][colIndex]
+              {sudokuIncomplete[rowIndex][colIndex] !== 0 ? (
+                sudokuIncomplete[rowIndex][colIndex]
               ) : (
                 <input
                   type="number"

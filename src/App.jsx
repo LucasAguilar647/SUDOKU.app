@@ -1,5 +1,5 @@
 import SudokuBoard from "./components/SudokuBoard";
-import sudokuGrid from "./assets/sudokuGrid";
+import sudokuIncomplete from "./assets/sudokuIncomplete";
 import "./css/app.css";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <div>
         <h1>SUDOKU</h1>
 
-        <SudokuBoard sudokuGrid={sudokuGrid} />
+        <SudokuBoard sudokuIncomplete={sudokuIncomplete} />
       </div>
     </div>
   );
