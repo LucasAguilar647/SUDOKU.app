@@ -20,4 +20,17 @@
 
 h1{
     text-align: center;
+    color:#aaa69d ;
+    
+}
+
+.btn-pista{
+    border-radius: 20px;
+    font-size: medium;
+    background-color: #706fd3;
+    color:black ;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
 }

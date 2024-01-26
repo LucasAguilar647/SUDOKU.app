@@ -7,8 +7,9 @@ function App() {
     <div className="container">
       <div className="recuadro-juego">
         <h1>SUDOKU</h1>
+        <hr />
 
-        <button>Pista</button>
+        <button className="btn-pista">Pista</button>
 
         <SudokuBoard sudokuIncomplete={sudokuIncomplete} />
 
