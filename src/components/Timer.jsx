@@ -7,11 +7,12 @@ const Timer = ({ setTiempo }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 1);
+      setSeconds(prevSeconds => prevSeconds + 1);
+      setTiempo(prevTiempo => prevTiempo + 1);
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [setTiempo]);
 
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
@@ -20,8 +21,7 @@ const Timer = ({ setTiempo }) => {
   };
 
   return (
-      <p>Tiempo: {formatTime(seconds)}</p>
-   
+    <p>Tiempo: {formatTime(seconds)}</p>
   );
 };
 

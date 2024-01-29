@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import sudokuComplete from '../assets/sudokuComplete'
-import '../css/SudokuBoard.css';
-import Timer from './Timer';
+import React, { useState } from "react";
+import sudokuComplete from "../assets/sudokuComplete";
+import "../css/SudokuBoard.css";
 
 function SudokuBoard({ sudokuIncomplete, setIsComplete, isComplete }) {
-  const [inputValues, setInputValues] = useState(sudokuIncomplete.map(row => row.slice()));
+  const [inputValues, setInputValues] = useState(
+    sudokuIncomplete.map((row) => row.slice())
+  );
   const [isValid, setIsValid] = useState(false);
- 
 
   const handleInputChange = (event, rowIndex, colIndex) => {
     const { value } = event.target;
     const newInputValues = inputValues.map((row, rIndex) =>
-      row.map((cell, cIndex) => (rIndex === rowIndex && cIndex === colIndex ? parseInt(value) || '' : cell))
+      row.map((cell, cIndex) =>
+        rIndex === rowIndex && cIndex === colIndex
+          ? parseInt(value) || ""
+          : cell
+      )
     );
     setInputValues(newInputValues);
 
@@ -28,7 +32,10 @@ function SudokuBoard({ sudokuIncomplete, setIsComplete, isComplete }) {
       {inputValues.map((row, rowIndex) => (
         <div key={rowIndex} className="sudoku-row">
           {row.map((cell, colIndex) => (
-            <div key={colIndex} className={`sudoku-cell ${!isValid ? 'invalid' : ''}`}>
+            <div
+              key={colIndex}
+              className={`sudoku-cell ${!isValid ? "invalid" : ""}`}
+            >
               {sudokuIncomplete[rowIndex][colIndex] !== 0 ? (
                 sudokuIncomplete[rowIndex][colIndex]
               ) : (
@@ -36,15 +43,15 @@ function SudokuBoard({ sudokuIncomplete, setIsComplete, isComplete }) {
                   type="number"
                   autoComplete="off"
                   value={inputValues[rowIndex][colIndex]}
-                  onChange={(event) => handleInputChange(event, rowIndex, colIndex)}
+                  onChange={(event) =>
+                    handleInputChange(event, rowIndex, colIndex)
+                  }
                 />
               )}
             </div>
           ))}
         </div>
       ))}
-
-      <Timer/>
     </div>
   );
 }
