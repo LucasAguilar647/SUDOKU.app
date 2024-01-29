@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import sudokuComplete from '../assets/sudokuComplete'
 import '../css/SudokuBoard.css';
+import Timer from './Timer';
 
-function SudokuBoard({ sudokuIncomplete }) {
+function SudokuBoard({ sudokuIncomplete, setIsComplete, isComplete }) {
   const [inputValues, setInputValues] = useState(sudokuIncomplete.map(row => row.slice()));
   const [isValid, setIsValid] = useState(false);
+ 
 
   const handleInputChange = (event, rowIndex, colIndex) => {
     const { value } = event.target;
@@ -16,6 +18,7 @@ function SudokuBoard({ sudokuIncomplete }) {
     if (parseInt(value) !== sudokuComplete[rowIndex][colIndex]) {
       setIsValid(false);
     } else {
+      setIsComplete(isComplete + 1);
       setIsValid(true);
     }
   };
@@ -40,6 +43,8 @@ function SudokuBoard({ sudokuIncomplete }) {
           ))}
         </div>
       ))}
+
+      <Timer/>
     </div>
   );
 }

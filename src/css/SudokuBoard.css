@@ -2,7 +2,6 @@
 .sudoku-board {
   display: grid;
   grid-template-columns: repeat(9, 80px);
-  border: 2px solid #333;
   justify-content: center; 
   align-items: center; 
 }
@@ -19,3 +18,5 @@ input[type="number"] {
   width: 100%;
   padding-left: 35px;
 }
+
+
